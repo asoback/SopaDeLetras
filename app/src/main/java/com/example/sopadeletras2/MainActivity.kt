@@ -35,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         findWordsGrid = findViewById(R.id.findWordsGrid)
         lettersGrid = findViewById(R.id.lettersGrid)
 
+        lettersGrid.rowCount = 10
+        lettersGrid.columnCount = 10
+
         // Wait for the layout to be fully inflated
         val viewTreeObserver = lettersGrid.viewTreeObserver
         viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
@@ -73,7 +76,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupLettersGrid(selectedWords : List<Word>) {
-        val letters = List(36) { ('A'..'Z').random() }
+        val chars = ('a'..'z') + 'ñ' + 'á'
+        val letters = List(100) { chars.random() }
 
         for (letter in letters) {
             val textView = TextView(this).apply {
