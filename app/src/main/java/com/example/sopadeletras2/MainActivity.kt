@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.InputStreamReader
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,9 +23,10 @@ class MainActivity : AppCompatActivity() {
     private var isDragging = false
     private var direction: Direction? = null
     private lateinit var selectedWords : List<Word>
+    private val gridSize = 10 // 6x6 grid
+    private lateinit var gridCells: Array<Array<TextView?>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -35,8 +37,11 @@ class MainActivity : AppCompatActivity() {
         findWordsGrid = findViewById(R.id.findWordsGrid)
         lettersGrid = findViewById(R.id.lettersGrid)
 
-        lettersGrid.rowCount = 10
-        lettersGrid.columnCount = 10
+        // Initialize the gridCells array for placing words
+        gridCells = Array(gridSize) { arrayOfNulls<TextView>(gridSize) }
+
+        lettersGrid.rowCount = gridSize
+        lettersGrid.columnCount = gridSize
 
         // Wait for the layout to be fully inflated
         val viewTreeObserver = lettersGrid.viewTreeObserver
@@ -51,7 +56,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupWordsGrid(selectedWords : List<Word>) {
-
         for (word in selectedWords) {
             val textView = TextView(this).apply {
                 text = word.text
@@ -77,44 +81,101 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupLettersGrid(selectedWords : List<Word>) {
         val chars = ('a'..'z') + 'ñ' + 'á'
-        val letters = List(100) { chars.random() }
+        val letters = List(gridSize*gridSize) { chars.random() }
 
-        for (letter in letters) {
-            val textView = TextView(this).apply {
-                text = letter.toString()
-                textSize = 18f
-                setPadding(16, 16, 16, 16)
-                setBackgroundColor(Color.LTGRAY)
-                setTextColor(Color.BLACK)
-                setOnTouchListener { view, event ->
-                    handleTouch(view as TextView, event)
-                }
+        for (word in selectedWords) {
+            val placed = placeWordInGrid(word.text)
+            if (placed) {println("Placed ${word}")}
+            else {println("Failed to place ${word}")}
+        }
+        println("Gridcells size: ${gridCells.size}")
+        for (i in 0 until gridSize) {
+            for (j in 0 until gridSize) {
+                println("Gridcells ${i} ${j}: ${gridCells[i][j]}")
             }
-
-            val param = GridLayout.LayoutParams().apply {
-                rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
-                columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
-                width = 0
-                height = GridLayout.LayoutParams.WRAP_CONTENT
-            }
-
-            textView.layoutParams = param
-            lettersGrid.addView(textView)
         }
 
-        // TODO add the words
-        val cols = lettersGrid.columnCount
-        println("Cols ${cols}")
-
-        if (selectedWords[0].text.length <= cols) {
-            for (i in 0..<selectedWords[0].text.length) {
-                if (lettersGrid.getChildAt(i) is TextView) {
-                    val textView = lettersGrid.getChildAt(i) as TextView
-                    textView.setText(selectedWords[0].text.get(i).toString())
+        // Fill the grid with random letters
+        for (i in 0 until gridSize) {
+            for (j in 0 until gridSize) {
+                if (gridCells[i][j] != null) {
+                    println("Placing a letter ${gridCells[i][j]?.text}")
                 }
+
+                val textView = TextView(this).apply {
+                    text = if (gridCells[i][j] != null) {
+                             gridCells[i][j]?.text
+                            } else { letters[i*gridSize+j].toString() }
+                    textSize = 18f
+                    setPadding(16, 16, 16, 16)
+                    setBackgroundColor(Color.LTGRAY)
+                    setTextColor( if (gridCells[i][j] != null) {
+                        Color.BLUE
+                    } else { Color.BLACK })
+                    setOnTouchListener { view, event ->
+                        handleTouch(view as TextView, event)
+                    }
+                }
+
+                val param = GridLayout.LayoutParams().apply {
+                    rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
+                    columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
+                    width = 0
+                    height = GridLayout.LayoutParams.WRAP_CONTENT
+                }
+
+                textView.layoutParams = param
+                lettersGrid.addView(textView)
             }
         }
     }
+
+
+    private fun placeWordInGrid(word: String): Boolean {
+        val random = Random.Default
+        val isVertical = random.nextBoolean()
+        val wordLength = word.length
+
+        // Try to place the word in the grid without overlapping
+        repeat(100) { // Limit the number of attempts
+            val startRow = random.nextInt(gridSize - if (isVertical) wordLength else 1)
+            val startCol = random.nextInt(gridSize - if (isVertical) 1 else wordLength)
+
+            if (canPlaceWord(startRow, startCol, wordLength, isVertical)) {
+                for (i in 0 until wordLength) {
+                    val row = startRow + if (isVertical) i else 0
+                    val col = startCol + if (isVertical) 0 else i
+                    println("Adding ${word[i]} to ${row} ${col}")
+
+                    // TODO Fix this
+                    val textView = TextView(this).apply {
+                        text = word[i].toString()
+                        textSize = 18f
+                        setPadding(16, 16, 16, 16)
+                        setBackgroundColor(Color.LTGRAY)
+                        setTextColor( Color.BLACK )
+                    }
+
+                    gridCells[row][col] = textView
+                }
+                return true
+            }
+        }
+
+        return false
+    }
+
+    private fun canPlaceWord(startRow: Int, startCol: Int, wordLength: Int, isVertical: Boolean): Boolean {
+        for (i in 0 until wordLength) {
+            val row = startRow + if (isVertical) i else 0
+            val col = startCol + if (isVertical) 0 else i
+            if (gridCells[row][col]?.text?.firstOrNull()?.isLetter() == true) {
+                return false
+            }
+        }
+        return true
+    }
+
 
     private fun loadWordsFromJson(): List<Word> {
         val inputStream = resources.openRawResource(R.raw.words)
