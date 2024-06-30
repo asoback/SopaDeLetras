@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewTreeObserver
+import android.widget.Button
 import android.widget.GridLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -21,10 +22,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var lettersGrid: GridLayout
     private lateinit var findWordsGrid: GridLayout
+    private lateinit var resetButton: Button
     private var selectedCells = mutableListOf<TextView>()
     private var isDragging = false
     private var direction: Direction? = null
-    private lateinit var selectedWords : List<Word>
+    private lateinit var selectedWords : MutableList<Word>
     private val gridSize = 10 // 6x6 grid
     private lateinit var gridCells: Array<Array<TextView?>>
 
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         findWordsGrid = findViewById(R.id.findWordsGrid)
         lettersGrid = findViewById(R.id.lettersGrid)
+        resetButton = findViewById(R.id.resetButton)
 
         // Initialize the gridCells array for placing words
         gridCells = Array(gridSize) { arrayOfNulls<TextView>(gridSize) }
@@ -44,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         lettersGrid.columnCount = gridSize
 
         // Shuffle the list and take the first 12 words
-        selectedWords = allWords.shuffled().take(12)
+        selectedWords = allWords.shuffled().take(12).toMutableList()
 
         // Wait for the layout to be fully inflated
         val viewTreeObserver = lettersGrid.viewTreeObserver
@@ -52,14 +55,30 @@ class MainActivity : AppCompatActivity() {
             override fun onGlobalLayout() {
                 // Remove the listener to prevent multiple calls
                 lettersGrid.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                attemptPlaceWords()
-                setupLettersGrid()
-                setupWordsGrid()
+                resetGame()
             }
         })
+
+        resetButton.setOnClickListener {
+            resetGame()
+        }
+    }
+
+    private fun resetGame() {
+        val allWords = loadWordsFromJson()
+        // Shuffle the list and take the first 12 words
+        selectedWords.clear()
+        selectedWords = allWords.shuffled().take(12).toMutableList()
+        attemptPlaceWords()
+        setupWordsGrid()
+        setupLettersGrid()
+        selectedCells.clear()
+        isDragging = false
+        direction = null
     }
 
     private fun setupWordsGrid() {
+        findWordsGrid.removeAllViews()
         for (word in selectedWords) {
             val textView = TextView(this).apply {
                 text = word.text
@@ -84,6 +103,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun attemptPlaceWords() {
+        gridCells = Array(gridSize) { arrayOfNulls<TextView>(gridSize) }
         for (word in selectedWords) {
             val placed = placeWordInGrid(word.text)
             if (placed) {
@@ -105,6 +125,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupLettersGrid() {
+        lettersGrid.removeAllViews()
         val chars = ('a'..'z') + 'ñ' + 'á'
         val letters = List(gridSize*gridSize) { chars.random() }
 
