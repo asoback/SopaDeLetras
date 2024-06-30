@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     private var direction: Direction? = null
     private lateinit var selectedWords : MutableList<Word>
     private val gridSize = 10 // 6x6 grid
+    private val findWordCount = 12
     private lateinit var gridCells: Array<Array<TextView?>>
     private val debug_mode = false
 
@@ -50,8 +51,8 @@ class MainActivity : AppCompatActivity() {
         lettersGrid.rowCount = gridSize
         lettersGrid.columnCount = gridSize
 
-        // Shuffle the list and take the first 12 words
-        selectedWords = allWords.shuffled().take(12).toMutableList()
+        // Shuffle the list and take the first x words
+        selectedWords = allWords.shuffled().take(findWordCount).toMutableList()
 
         // Wait for the layout to be fully inflated
         val viewTreeObserver = lettersGrid.viewTreeObserver

@@ -8,4 +8,9 @@
     <color name="defaultTextColor">#000000</color>
     <color name="darkModeBackgroundColor">#1F1F1F</color>
     <color name="darkModeTextColor">#FFFFFF</color>
+    <color name="defaultBackgroundColorVariant">#d6e6ff</color>
+    <color name="defaultTextColorVariant">#363636</color>
+    <color name="darkModeBackgroundColorVariant">#2f1f36</color>
+    <color name="darkModeTextColorVariant">#ccc8ab</color>
+    <color name="darkModePrimary">#4b4a91</color>
 </resources>
