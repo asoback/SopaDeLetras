@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.GridLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.InputStreamReader
@@ -31,8 +33,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val allWords = loadWordsFromJson()
-        // Shuffle the list and take the first 12 words
-        selectedWords = allWords.shuffled().take(12)
 
         findWordsGrid = findViewById(R.id.findWordsGrid)
         lettersGrid = findViewById(R.id.lettersGrid)
@@ -43,19 +43,23 @@ class MainActivity : AppCompatActivity() {
         lettersGrid.rowCount = gridSize
         lettersGrid.columnCount = gridSize
 
+        // Shuffle the list and take the first 12 words
+        selectedWords = allWords.shuffled().take(12)
+
         // Wait for the layout to be fully inflated
         val viewTreeObserver = lettersGrid.viewTreeObserver
         viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
                 // Remove the listener to prevent multiple calls
                 lettersGrid.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                setupLettersGrid(selectedWords)
-                setupWordsGrid(selectedWords)
+                attemptPlaceWords()
+                setupLettersGrid()
+                setupWordsGrid()
             }
         })
     }
 
-    private fun setupWordsGrid(selectedWords : List<Word>) {
+    private fun setupWordsGrid() {
         for (word in selectedWords) {
             val textView = TextView(this).apply {
                 text = word.text
@@ -79,21 +83,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupLettersGrid(selectedWords : List<Word>) {
-        val chars = ('a'..'z') + 'ñ' + 'á'
-        val letters = List(gridSize*gridSize) { chars.random() }
-
+    private fun attemptPlaceWords() {
         for (word in selectedWords) {
             val placed = placeWordInGrid(word.text)
-            if (placed) {println("Placed ${word}")}
-            else {println("Failed to place ${word}")}
-        }
-        println("Gridcells size: ${gridCells.size}")
-        for (i in 0 until gridSize) {
-            for (j in 0 until gridSize) {
-                println("Gridcells ${i} ${j}: ${gridCells[i][j]}")
+            if (placed) {
+                println("Placed ${word}")
+                word.wasPlaced = true
+            } else {
+                println("Failed to place ${word}")
             }
         }
+    }
+
+    private fun checkVictory() : Boolean {
+        for (word in selectedWords) {
+            if (word.wasPlaced == true && word.isCrossedOut == false) {
+                return false
+            }
+        }
+        return true
+    }
+
+    private fun setupLettersGrid() {
+        val chars = ('a'..'z') + 'ñ' + 'á'
+        val letters = List(gridSize*gridSize) { chars.random() }
 
         // Fill the grid with random letters
         for (i in 0 until gridSize) {
@@ -222,6 +235,13 @@ class MainActivity : AppCompatActivity() {
                 }
                 if (!foundStr) {
                     unhighlightSelectedCells()
+                }
+
+                // check victory state
+                if (checkVictory()) {
+                    Snackbar.make(view, "Congrats you won!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null)
+                        .show()
                 }
             }
         }
