@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupLettersGrid() {
         lettersGrid.removeAllViews()
-        val chars = ('a'..'z') + 'ñ' + 'á'
+        val chars = ('a'..'z') + 'ñ' + 'á' + 'í'
         val letters = List(gridSize*gridSize) { chars.random() }
 
         // Fill the grid with random letters
@@ -374,11 +374,11 @@ class MainActivity : AppCompatActivity() {
             textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         } else {
             if (isDarkMode(context = this)) {
-                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.darkModeBackgroundColor))
-                textView.setTextColor(ContextCompat.getColor(this, R.color.darkModeTextColor))
+                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.darkWindowBackground))
+                textView.setTextColor(ContextCompat.getColor(this, R.color.darkColorOnPrimary))
             } else {
-                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.defaultBackgroundColor))
-                textView.setTextColor(ContextCompat.getColor(this, R.color.defaultTextColor))
+                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.lightWindowBackground))
+                textView.setTextColor(ContextCompat.getColor(this, R.color.black))
             }
             textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
         }
