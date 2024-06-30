@@ -1,5 +1,7 @@
 package com.example.sopadeletras2
 
+import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
@@ -9,9 +11,9 @@ import android.view.ViewTreeObserver
 import android.widget.Button
 import android.widget.GridLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.toColor
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -63,6 +65,8 @@ class MainActivity : AppCompatActivity() {
         resetButton.setOnClickListener {
             resetGame()
         }
+
+        println("Dark Mode: ${isDarkMode(context = this)}")
     }
 
     private fun resetGame() {
@@ -105,20 +109,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun attemptPlaceWords() {
         gridCells = Array(gridSize) { arrayOfNulls<TextView>(gridSize) }
-        for (word in selectedWords) {
-            val placed = placeWordInGrid(word.text)
-            if (placed) {
-                println("Placed ${word}")
-                word.wasPlaced = true
-            } else {
+        val iterator = selectedWords.iterator()
+        while (iterator.hasNext()) {
+            val word = iterator.next().text
+            if (!placeWordInGrid(word)) {
+                iterator.remove()
                 println("Failed to place ${word}")
+            } else {
+                println("Placed ${word}")
             }
         }
     }
 
     private fun checkVictory() : Boolean {
         for (word in selectedWords) {
-            if (word.wasPlaced == true && word.isCrossedOut == false) {
+            if (word.isCrossedOut == false) {
                 return false
             }
         }
@@ -133,17 +138,13 @@ class MainActivity : AppCompatActivity() {
         // Fill the grid with random letters
         for (i in 0 until gridSize) {
             for (j in 0 until gridSize) {
-                if (gridCells[i][j] != null) {
-                    println("Placing a letter ${gridCells[i][j]?.text}")
-                }
-
                 val textView = TextView(this).apply {
                     text = if (gridCells[i][j] != null) {
                              gridCells[i][j]?.text
                             } else { letters[i*gridSize+j].toString() }
                     textSize = 18f
                     setPadding(16, 16, 16, 16)
-                    setBackgroundColor(Color.LTGRAY)
+                    setBackgroundColor( Color.LTGRAY)
                     setTextColor( if (debug_mode && gridCells[i][j] != null) {
                         Color.BLUE
                     } else { Color.BLACK })
@@ -165,7 +166,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun placeWordInGrid(word: String): Boolean {
         val random = Random.Default
         val isVertical = random.nextBoolean()
@@ -180,7 +180,6 @@ class MainActivity : AppCompatActivity() {
                 for (i in 0 until wordLength) {
                     val row = startRow + if (isVertical) i else 0
                     val col = startCol + if (isVertical) 0 else i
-                    println("Adding ${word[i]} to ${row} ${col}")
 
                     // TODO Fix this
                     val textView = TextView(this).apply {
@@ -341,6 +340,10 @@ class MainActivity : AppCompatActivity() {
         return null
     }
 
+    fun isDarkMode(context: Context): Boolean {
+        val darkModeFlag = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return darkModeFlag == Configuration.UI_MODE_NIGHT_YES
+    }
 
     private fun onWordClick(textView: TextView, word: Word) {
         if (textView.text == word.text) {
@@ -348,7 +351,11 @@ class MainActivity : AppCompatActivity() {
             textView.setTextColor(Color.RED)
         } else {
             textView.text = word.text
-            textView.setTextColor(Color.DKGRAY)
+            if (isDarkMode(context = this)) {
+                textView.setTextColor(Color.LTGRAY)
+            } else {
+                textView.setTextColor(Color.DKGRAY)
+            }
         }
     }
 
@@ -358,8 +365,13 @@ class MainActivity : AppCompatActivity() {
             textView.setTextColor(ContextCompat.getColor(this, R.color.crossedOutTextColor))
             textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         } else {
-            textView.setBackgroundColor(ContextCompat.getColor(this, R.color.defaultBackgroundColor))
-            textView.setTextColor(ContextCompat.getColor(this, R.color.defaultTextColor))
+            if (isDarkMode(context = this)) {
+                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.darkModeBackgroundColor))
+                textView.setTextColor(ContextCompat.getColor(this, R.color.darkModeTextColor))
+            } else {
+                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.defaultBackgroundColor))
+                textView.setTextColor(ContextCompat.getColor(this, R.color.defaultTextColor))
+            }
             textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
         }
     }

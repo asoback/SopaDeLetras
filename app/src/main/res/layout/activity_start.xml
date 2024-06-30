@@ -9,14 +9,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Word Find Game"
+        android:text="Sopa de Letras"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="con traducciones al ingles"
+        android:textSize="12sp"
+        android:textStyle="normal"
         android:layout_marginBottom="32dp"/>
 
     <Button
         android:id="@+id/startGameButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Game"/>
+        android:text="Comienza el juego"/>
 </LinearLayout>

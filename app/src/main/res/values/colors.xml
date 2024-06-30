@@ -6,4 +6,6 @@
     <color name="crossedOutTextColor">#B71C1C</color>
     <color name="defaultBackgroundColor">#FFFFFF</color>
     <color name="defaultTextColor">#000000</color>
+    <color name="darkModeBackgroundColor">#1F1F1F</color>
+    <color name="darkModeTextColor">#FFFFFF</color>
 </resources>
