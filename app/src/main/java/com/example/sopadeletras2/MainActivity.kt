@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -259,6 +260,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 // check victory state
+                // TODO this should have some reset button and be centered until you ack
                 if (checkVictory()) {
                     Snackbar.make(view, "Congrats you won!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null)
@@ -309,9 +311,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun selectCell(view: TextView) {
-        view.setBackgroundColor(Color.YELLOW)
-        if (!selectedCells.contains(view)) {
-            selectedCells.add(view)
+        val bg = view.background
+        if (bg is ColorDrawable) {
+            if (bg.color != Color.GREEN) {
+                view.setBackgroundColor(Color.YELLOW)
+                if (!selectedCells.contains(view)) {
+                    selectedCells.add(view)
+                }
+            }
         }
     }
 
