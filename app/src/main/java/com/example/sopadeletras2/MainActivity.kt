@@ -107,6 +107,26 @@ class MainActivity : AppCompatActivity() {
             textView.layoutParams = param
             findWordsGrid.addView(textView)
         }
+        if (selectedWords.size < findWordCount) {
+            for (i in (0 until findWordCount - selectedWords.size)) {
+                val textView = TextView(this).apply {
+                    text = " "
+                    textSize = 18f
+                    setPadding(16, 16, 16, 16)
+                }
+                val param = GridLayout.LayoutParams().apply {
+                    rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
+                    columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f)
+                    width = 0
+                    height = GridLayout.LayoutParams.WRAP_CONTENT
+                }
+
+                val word = Word("", "", false, true)
+                updateTextViewAppearance(textView, word)
+                textView.layoutParams = param
+                findWordsGrid.addView(textView)
+            }
+        }
     }
 
     private fun attemptPlaceWords() {
@@ -374,10 +394,10 @@ class MainActivity : AppCompatActivity() {
             textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         } else {
             if (isDarkMode(context = this)) {
-                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.darkWindowBackground))
-                textView.setTextColor(ContextCompat.getColor(this, R.color.darkColorOnPrimary))
+                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                textView.setTextColor(ContextCompat.getColor(this, R.color.black))
             } else {
-                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.lightWindowBackground))
+                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 textView.setTextColor(ContextCompat.getColor(this, R.color.black))
             }
             textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()

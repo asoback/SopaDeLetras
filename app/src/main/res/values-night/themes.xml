@@ -3,7 +3,7 @@
     <style name="Base.Theme.SopaDeLetras2" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/darkModePrimary</item>
         <item name="colorPrimaryVariant">@color/darkModeBackgroundColorVariant</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/darkModeOnPrimary</item>
         <item name="colorSecondary">@color/darkModeTextColor</item>
         <item name="colorSecondaryVariant">@color/darkModeTextColorVariant</item>
         <item name="colorOnSecondary">@color/black</item>

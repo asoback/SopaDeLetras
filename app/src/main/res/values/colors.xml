@@ -13,4 +13,7 @@
     <color name="darkModeBackgroundColorVariant">#2f1f36</color>
     <color name="darkModeTextColorVariant">#ccc8ab</color>
     <color name="darkModePrimary">#4b4a91</color>
+    <color name="darkModeOnPrimary">#ccc8ab</color>
+    <color name="darkModeSecondary">#313332</color>
+    <color name="darkModeOnSecondary">#969696</color>
 </resources>
