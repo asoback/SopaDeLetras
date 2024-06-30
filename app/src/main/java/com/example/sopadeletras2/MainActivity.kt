@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var selectedWords : MutableList<Word>
     private val gridSize = 10 // 6x6 grid
     private lateinit var gridCells: Array<Array<TextView?>>
+    private val debug_mode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -143,7 +144,7 @@ class MainActivity : AppCompatActivity() {
                     textSize = 18f
                     setPadding(16, 16, 16, 16)
                     setBackgroundColor(Color.LTGRAY)
-                    setTextColor( if (gridCells[i][j] != null) {
+                    setTextColor( if (debug_mode && gridCells[i][j] != null) {
                         Color.BLUE
                     } else { Color.BLACK })
                     setOnTouchListener { view, event ->
@@ -344,8 +345,10 @@ class MainActivity : AppCompatActivity() {
     private fun onWordClick(textView: TextView, word: Word) {
         if (textView.text == word.text) {
             textView.text = word.altText
+            textView.setTextColor(Color.RED)
         } else {
             textView.text = word.text
+            textView.setTextColor(Color.DKGRAY)
         }
     }
 
