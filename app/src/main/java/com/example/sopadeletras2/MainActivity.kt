@@ -14,6 +14,7 @@ import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.GridLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -83,7 +84,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_settings -> {
                 // Navigate to settings (this could be a new activity or a dialog)
-                // TODO implement settings
+                // TODO implement settings and about, github link
+                Toast.makeText(this, "2024, <github link>", Toast.LENGTH_LONG).show()
+
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -306,7 +309,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 // check victory state
-                // TODO this should have some reset button and be centered until you ack
                 if (checkVictory()) {
                     navigateToVictoryScreen()
                 }
