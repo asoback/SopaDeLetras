@@ -1,6 +1,7 @@
 package com.example.sopadeletras2
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.Paint
@@ -152,9 +153,15 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    private fun navigateToVictoryScreen() {
+        val intent = Intent(this, VictoryActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     private fun setupLettersGrid() {
         lettersGrid.removeAllViews()
-        val chars = ('a'..'z') + 'ñ' + 'á' + 'í'
+        val chars = ('a'..'z') + 'ñ' + 'á' + 'í' + 'é' + 'ó' + 'ú'
         val letters = List(gridSize*gridSize) { chars.random() }
 
         // Fill the grid with random letters
@@ -283,9 +290,7 @@ class MainActivity : AppCompatActivity() {
                 // check victory state
                 // TODO this should have some reset button and be centered until you ack
                 if (checkVictory()) {
-                    Snackbar.make(view, "Congrats you won!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null)
-                        .show()
+                    navigateToVictoryScreen()
                 }
             }
         }
