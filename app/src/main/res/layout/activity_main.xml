@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/darkModePrimary"
+        app:title="Sopa de Letras"
+        app:titleTextColor="@color/darkToolbarTitleColor"
+        app:subtitleTextColor="@color/darkToolbarSubtitleColor"
+        android:textColorSecondary="@color/darkToolbarItemColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lettersCardView"/>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/lettersCardView"
         android:layout_width="0dp"
@@ -17,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/resetButton">
+        app:layout_constraintBottom_toTopOf="@id/findWordsGrid">
 
         <GridLayout
             android:id="@+id/lettersGrid"
@@ -30,18 +45,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/findWordsGrid"></GridLayout>
     </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/resetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginBottom="536dp"
-        android:text="Reiniciar"
-        app:layout_constraintBottom_toTopOf="@id/findWordsGrid"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <GridLayout
         android:id="@+id/findWordsGrid"

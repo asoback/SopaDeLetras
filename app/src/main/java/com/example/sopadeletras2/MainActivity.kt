@@ -7,16 +7,16 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewTreeObserver
-import android.widget.Button
 import android.widget.GridLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.toColor
-import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.InputStreamReader
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var lettersGrid: GridLayout
     private lateinit var findWordsGrid: GridLayout
-    private lateinit var resetButton: Button
+    private lateinit var toolbar: Toolbar
     private var selectedCells = mutableListOf<TextView>()
     private var isDragging = false
     private var direction: Direction? = null
@@ -44,7 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         findWordsGrid = findViewById(R.id.findWordsGrid)
         lettersGrid = findViewById(R.id.lettersGrid)
-        resetButton = findViewById(R.id.resetButton)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         // Initialize the gridCells array for placing words
         gridCells = Array(gridSize) { arrayOfNulls<TextView>(gridSize) }
@@ -65,11 +67,27 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        resetButton.setOnClickListener {
-            resetGame()
-        }
-
         println("Dark Mode: ${isDarkMode(context = this)}")
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_reset -> {
+                resetGame()
+                true
+            }
+            R.id.action_settings -> {
+                // Navigate to settings (this could be a new activity or a dialog)
+                // TODO implement settings
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun resetGame() {
@@ -399,8 +417,8 @@ class MainActivity : AppCompatActivity() {
             textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         } else {
             if (isDarkMode(context = this)) {
-                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                textView.setTextColor(ContextCompat.getColor(this, R.color.black))
+                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.black))
+                textView.setTextColor(ContextCompat.getColor(this, R.color.white))
             } else {
                 textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 textView.setTextColor(ContextCompat.getColor(this, R.color.black))

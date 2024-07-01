@@ -9,5 +9,14 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:windowBackground">@color/darkModeBackgroundColor</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="toolbarStyle">@style/ToolbarTheme</item>
     </style>
+
+    <!-- Custom Toolbar theme -->
+    <style name="ToolbarTheme" parent="Widget.MaterialComponents.Toolbar.Surface">
+        <item name="titleTextColor">@color/darkToolbarTitleColor</item>
+        <item name="subtitleTextColor">@color/darkToolbarSubtitleColor</item>
+        <item name="android:textColorSecondary">@color/darkToolbarItemColor</item> <!-- for menu items -->
+    </style>
+
 </resources>

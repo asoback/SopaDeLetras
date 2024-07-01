@@ -16,4 +16,12 @@
     <color name="darkModeOnPrimary">#ccc8ab</color>
     <color name="darkModeSecondary">#313332</color>
     <color name="darkModeOnSecondary">#969696</color>
+
+
+    <color name="toolbarTitleColor">#FF000000</color>
+    <color name="toolbarSubtitleColor">#FF000000</color>
+    <color name="toolbarItemColor">#FF000000</color>
+    <color name="darkToolbarTitleColor">#FFFFFFFF</color>
+    <color name="darkToolbarSubtitleColor">#FFFFFFFF</color>
+    <color name="darkToolbarItemColor">#FFFFFFFF</color>
 </resources>
