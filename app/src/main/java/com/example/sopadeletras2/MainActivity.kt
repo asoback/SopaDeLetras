@@ -138,7 +138,7 @@ class MainActivity : AppCompatActivity() {
                     height = GridLayout.LayoutParams.WRAP_CONTENT
                 }
 
-                val word = Word("", "", false, true)
+                val word = Word("", "", false)
                 updateTextViewAppearance(textView, word)
                 textView.layoutParams = param
                 findWordsGrid.addView(textView)
@@ -162,7 +162,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkVictory() : Boolean {
         for (word in selectedWords) {
-            if (word.isCrossedOut == false) {
+            if (!word.isCrossedOut) {
                 return false
             }
         }
@@ -271,7 +271,7 @@ class MainActivity : AppCompatActivity() {
             MotionEvent.ACTION_UP -> {
                 isDragging = false
                 highlightSelectedCells()
-                var str : String = ""
+                var str = ""
                 for (cell in selectedCells) {
                     str += cell.text
                 }
@@ -328,10 +328,8 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                // Ensure the new cell is in the same row or column based on direction
                 val firstCellLocation = IntArray(2)
                 selectedCells[0].getLocationOnScreen(firstCellLocation)
-                // TODO: Make sure they are contiguous cells
                 return when (direction) {
                     Direction.VERTICAL -> if (firstCellLocation[0] == location[0]) child as TextView else null
                     Direction.HORIZONTAL -> if (firstCellLocation[1] == location[1]) child as TextView else null
@@ -366,20 +364,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun GridLayout.findViewAtPosition(x: Int, y: Int): View? {
-        for (i in 0 until childCount) {
-            val child = getChildAt(i)
-            val location = IntArray(2)
-            child.getLocationOnScreen(location)
-            if (x >= location[0] && x <= location[0] + child.width &&
-                y >= location[1] && y <= location[1] + child.height) {
-                return child
-            }
-        }
-        return null
-    }
-
-    fun isDarkMode(context: Context): Boolean {
+    private fun isDarkMode(context: Context): Boolean {
         val darkModeFlag = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         return darkModeFlag == Configuration.UI_MODE_NIGHT_YES
     }

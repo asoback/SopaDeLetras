@@ -3,6 +3,5 @@ package com.example.sopadeletras2
 data class Word(
     val text: String,
     val altText: String,
-    var isCrossedOut: Boolean = false,
-    var isEmpty : Boolean = false
+    var isCrossedOut: Boolean = false
 )
