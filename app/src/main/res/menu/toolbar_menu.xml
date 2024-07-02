@@ -7,7 +7,7 @@
         android:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_settings"
-        android:title="Ajustes"
+        android:title="Info"
         android:icon="@android:drawable/ic_menu_preferences"
         android:showAsAction="ifRoom"/>
 </menu>

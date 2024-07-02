@@ -83,9 +83,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_settings -> {
-                // Navigate to settings (this could be a new activity or a dialog)
-                // TODO implement settings and about, github link
-                Toast.makeText(this, "2024, <github link>", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "2024, https://github.com/asoback/SopadeLetras", Toast.LENGTH_LONG).show()
 
                 true
             }
