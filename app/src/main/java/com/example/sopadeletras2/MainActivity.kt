@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var selectedWords : MutableList<Word>
     private val gridSize = 10 // 6x6 grid
     private val findWordCount = 12
-    private lateinit var gridCells: Array<Array<TextView?>>
+    private lateinit var gridCells: Array<Array<String?>>
     private val debug_mode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,9 +48,6 @@ class MainActivity : AppCompatActivity() {
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-        // Initialize the gridCells array for placing words
-        gridCells = Array(gridSize) { arrayOfNulls<TextView>(gridSize) }
 
         lettersGrid.rowCount = gridSize
         lettersGrid.columnCount = gridSize
@@ -150,7 +147,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun attemptPlaceWords() {
-        gridCells = Array(gridSize) { arrayOfNulls<TextView>(gridSize) }
+        gridCells = Array(gridSize) { arrayOfNulls<String>(gridSize) }
         val iterator = selectedWords.iterator()
         while (iterator.hasNext()) {
             val word = iterator.next().text
@@ -188,7 +185,7 @@ class MainActivity : AppCompatActivity() {
             for (j in 0 until gridSize) {
                 val textView = TextView(this).apply {
                     text = if (gridCells[i][j] != null) {
-                             gridCells[i][j]?.text
+                             gridCells[i][j]
                             } else { letters[i*gridSize+j].toString() }
                     textSize = 18f
                     setPadding(16, 16, 16, 16)
@@ -229,16 +226,7 @@ class MainActivity : AppCompatActivity() {
                     val row = startRow + if (isVertical) i else 0
                     val col = startCol + if (isVertical) 0 else i
 
-                    // TODO Fix this
-                    val textView = TextView(this).apply {
-                        text = word[i].toString()
-                        textSize = 18f
-                        setPadding(16, 16, 16, 16)
-                        setBackgroundColor(Color.LTGRAY)
-                        setTextColor( Color.BLACK )
-                    }
-
-                    gridCells[row][col] = textView
+                    gridCells[row][col] = word[i].toString()
                 }
                 return true
             }
@@ -251,7 +239,7 @@ class MainActivity : AppCompatActivity() {
         for (i in 0 until wordLength) {
             val row = startRow + if (isVertical) i else 0
             val col = startCol + if (isVertical) 0 else i
-            if (gridCells[row][col]?.text?.firstOrNull()?.isLetter() == true) {
+            if (gridCells[row][col]?.firstOrNull()?.isLetter() == true) {
                 return false
             }
         }
