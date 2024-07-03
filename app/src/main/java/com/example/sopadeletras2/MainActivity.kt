@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private var isDragging = false
     private var direction: Direction? = null
     private lateinit var selectedWords : MutableList<Word>
-    private val gridSize = 10 // 6x6 grid
+    private val gridSize = 10 // 10x10 grid
     private val findWordCount = 12
     private lateinit var gridCells: Array<Array<String?>>
     private val debugMode = false
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
             override fun onGlobalLayout() {
                 // Remove the listener to prevent multiple calls
                 lettersGrid.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                resetGame()
+                startGame()
             }
         })
 
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_reset -> {
-                resetGame()
+                startGame()
                 true
             }
             R.id.action_settings -> {
@@ -99,11 +99,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun resetGame() {
+    private fun startGame() {
         val allWords = loadWordsFromJson()
-        // Shuffle the list and take the first 12 words
-        selectedWords.clear()
-        selectedWords = allWords.shuffled().take(12).toMutableList()
+        if (selectedWords.size > 0) selectedWords.clear()
+        selectedWords = allWords.shuffled().take(findWordCount).toMutableList()
         attemptPlaceWords()
         setupWordsGrid()
         setupLettersGrid()
@@ -390,9 +389,9 @@ class MainActivity : AppCompatActivity() {
         } else {
             textView.text = word.text
             if (isDarkMode(context = this)) {
-                textView.setTextColor(Color.LTGRAY)
+                textView.setTextColor(getResources().getColor(R.color.darkModeTextColorVariant))
             } else {
-                textView.setTextColor(Color.DKGRAY)
+                textView.setTextColor(getResources().getColor(R.color.defaultTextColorVariant))
             }
         }
     }
@@ -404,11 +403,11 @@ class MainActivity : AppCompatActivity() {
             textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         } else {
             if (isDarkMode(context = this)) {
-                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.black))
-                textView.setTextColor(ContextCompat.getColor(this, R.color.white))
+                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.darkModeSecondary))
+                textView.setTextColor(ContextCompat.getColor(this, R.color.darkModeTextColorVariant))
             } else {
-                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                textView.setTextColor(ContextCompat.getColor(this, R.color.black))
+                textView.setBackgroundColor(ContextCompat.getColor(this, R.color.defaultBackgroundColorVariant))
+                textView.setTextColor(ContextCompat.getColor(this, R.color.defaultTextColorVariant))
             }
             textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
         }
