@@ -75,8 +75,6 @@ class MainActivity : AppCompatActivity() {
                 startGame()
             }
         })
-
-        println("Dark Mode: ${isDarkMode(context = this)}")
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
