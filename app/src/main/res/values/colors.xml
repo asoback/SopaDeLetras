@@ -24,4 +24,12 @@
     <color name="darkToolbarTitleColor">#FFFFFFFF</color>
     <color name="darkToolbarSubtitleColor">#FFFFFFFF</color>
     <color name="darkToolbarItemColor">#FFFFFFFF</color>
+
+
+    <color name="color1">#33FF57</color>
+    <color name="color2">#FF5733</color>
+    <color name="color3">#3357FF</color>
+    <color name="color4">#FF33A1</color>
+    <color name="color5">#A133FF</color>
+    <color name="color6">#33FFA1</color>
 </resources>

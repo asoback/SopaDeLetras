@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
-import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.GridLayout
 import android.widget.TextView
@@ -35,7 +34,19 @@ class MainActivity : AppCompatActivity() {
     private val gridSize = 10 // 6x6 grid
     private val findWordCount = 12
     private lateinit var gridCells: Array<Array<String?>>
-    private val debug_mode = false
+    private val debugMode = false
+    private var colorIndex = 0
+
+    private val colors by lazy {
+        listOf(
+            ContextCompat.getColor(this, R.color.color1),
+            ContextCompat.getColor(this, R.color.color2),
+            ContextCompat.getColor(this, R.color.color3),
+            ContextCompat.getColor(this, R.color.color4),
+            ContextCompat.getColor(this, R.color.color5),
+            ContextCompat.getColor(this, R.color.color6)
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -190,7 +201,7 @@ class MainActivity : AppCompatActivity() {
                     textSize = 18f
                     setPadding(16, 16, 16, 16)
                     setBackgroundColor( Color.LTGRAY)
-                    setTextColor( if (debug_mode && gridCells[i][j] != null) {
+                    setTextColor( if (debugMode && gridCells[i][j] != null) {
                         Color.BLUE
                     } else { Color.BLACK })
                     setOnTouchListener { view, event ->
@@ -246,7 +257,6 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-
     private fun loadWordsFromJson(): List<Word> {
         val inputStream = resources.openRawResource(R.raw.words)
         val reader = InputStreamReader(inputStream)
@@ -280,6 +290,10 @@ class MainActivity : AppCompatActivity() {
                     if (word.text == str) {
                         println("Found ${str}")
                         word.isCrossedOut = true
+                        colorIndex++
+                        if (colorIndex >= colors.size) {
+                            colorIndex = 0
+                        }
                         foundStr = true
                         for (i in 0..<findWordsGrid.childCount) {
                             val tv = findWordsGrid.getChildAt(i) as TextView
@@ -343,7 +357,7 @@ class MainActivity : AppCompatActivity() {
     private fun selectCell(view: TextView) {
         val bg = view.background
         if (bg is ColorDrawable) {
-            if (bg.color != Color.GREEN) {
+            if (bg.color !in colors) {
                 view.setBackgroundColor(Color.YELLOW)
                 if (!selectedCells.contains(view)) {
                     selectedCells.add(view)
@@ -354,7 +368,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun highlightSelectedCells() {
         for (cell in selectedCells) {
-            cell.setBackgroundColor(Color.GREEN)
+            cell.setBackgroundColor(colors[colorIndex])
         }
     }
 
