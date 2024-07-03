@@ -2,34 +2,45 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
     <color name="crossedOutBackgroundColor">#FFCDD2</color>
     <color name="crossedOutTextColor">#B71C1C</color>
-    <color name="defaultBackgroundColor">#FFFFFF</color>
+
+    <color name="defaultBackgroundColor">#B1B3C1</color>
     <color name="defaultTextColor">#000000</color>
+    <color name="defaultBackgroundColorVariant">#CCCCCC</color>
+    <color name="defaultTextColorVariant">#363636</color>
+    <color name="defaultPrimary">#4b4a91</color>
+    <color name="defaultOnPrimary">#FFFFFF</color>
+    <color name="defaultSecondary">#313332</color>
+    <color name="defaultOnSecondary">#C7C7C7</color>
+
     <color name="darkModeBackgroundColor">#1F1F1F</color>
     <color name="darkModeTextColor">#FFFFFF</color>
-    <color name="defaultBackgroundColorVariant">#d6e6ff</color>
-    <color name="defaultTextColorVariant">#363636</color>
-    <color name="darkModeBackgroundColorVariant">#2f1f36</color>
-    <color name="darkModeTextColorVariant">#ccc8ab</color>
+    <color name="darkModeBackgroundColorVariant">#322737</color>
     <color name="darkModePrimary">#4b4a91</color>
-    <color name="darkModeOnPrimary">#ccc8ab</color>
-    <color name="darkModeSecondary">#313332</color>
-    <color name="darkModeOnSecondary">#969696</color>
+    <color name="darkModeOnPrimary">#FFFFFF</color>
+    <color name="darkModeSecondary">#2B2C2B</color>
+    <color name="darkModeOnSecondary">#E4DEF6</color>
+    <color name="darkModeTextColorVariant">#EFEFEF</color>
 
 
-    <color name="toolbarTitleColor">#FF000000</color>
-    <color name="toolbarSubtitleColor">#FF000000</color>
-    <color name="toolbarItemColor">#FF000000</color>
-    <color name="darkToolbarTitleColor">#FFFFFFFF</color>
+    <color name="toolbarTitleColor">#FFFFFF</color>
+    <color name="toolbarSubtitleColor">#FFFFFF</color>
+    <color name="toolbarItemColor">#FFFFFF</color>
+    <color name="darkToolbarTitleColor">#FFFFFF</color>
     <color name="darkToolbarSubtitleColor">#FFFFFFFF</color>
     <color name="darkToolbarItemColor">#FFFFFFFF</color>
 
+    <color name="color1">#33FFA1</color>
+    <color name="color2">#695CFF</color>
+    <color name="color3">#BF3100</color>
+    <color name="color4">#F9A03F</color>
+    <color name="color5">#018FB7</color>
+    <color name="color6">#3357FF</color>
+    <color name="color7">#61A0AF</color>
+    <color name="color8">#E36397</color>
+    <color name="color9">#CAFF8A</color>
+    <color name="color10">#88498f</color>
 
-    <color name="color1">#33FF57</color>
-    <color name="color2">#FF5733</color>
-    <color name="color3">#3357FF</color>
-    <color name="color4">#FF33A1</color>
-    <color name="color5">#A133FF</color>
-    <color name="color6">#33FFA1</color>
 </resources>

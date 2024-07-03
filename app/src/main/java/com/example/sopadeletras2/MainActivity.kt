@@ -44,7 +44,11 @@ class MainActivity : AppCompatActivity() {
             ContextCompat.getColor(this, R.color.color3),
             ContextCompat.getColor(this, R.color.color4),
             ContextCompat.getColor(this, R.color.color5),
-            ContextCompat.getColor(this, R.color.color6)
+            ContextCompat.getColor(this, R.color.color6),
+            ContextCompat.getColor(this, R.color.color7),
+            ContextCompat.getColor(this, R.color.color8),
+            ContextCompat.getColor(this, R.color.color9),
+            ContextCompat.getColor(this, R.color.color10)
         )
     }
 

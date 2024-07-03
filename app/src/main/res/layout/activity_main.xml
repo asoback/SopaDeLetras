@@ -7,19 +7,22 @@
     tools:context=".MainActivity">
 
     <!-- Toolbar -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/darkModePrimary"
-        app:title="Sopa de Letras"
-        app:titleTextColor="@color/darkToolbarTitleColor"
-        app:subtitleTextColor="@color/darkToolbarSubtitleColor"
         android:textColorSecondary="@color/darkToolbarItemColor"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lettersCardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/lettersCardView"/>
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:subtitleTextColor="@color/darkToolbarSubtitleColor"
+        app:title="Sopa de Letras"
+        app:titleTextColor="@color/darkToolbarTitleColor" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/lettersCardView"

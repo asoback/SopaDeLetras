@@ -1,12 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.SopaDeLetras2" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.SopaDeLetras" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/darkModePrimary</item>
         <item name="colorPrimaryVariant">@color/darkModeBackgroundColorVariant</item>
         <item name="colorOnPrimary">@color/darkModeOnPrimary</item>
         <item name="colorSecondary">@color/darkModeTextColor</item>
         <item name="colorSecondaryVariant">@color/darkModeTextColorVariant</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/darkModeOnSecondary</item>
         <item name="android:windowBackground">@color/darkModeBackgroundColor</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="toolbarStyle">@style/ToolbarTheme</item>
@@ -16,7 +16,8 @@
     <style name="ToolbarTheme" parent="Widget.MaterialComponents.Toolbar.Surface">
         <item name="titleTextColor">@color/darkToolbarTitleColor</item>
         <item name="subtitleTextColor">@color/darkToolbarSubtitleColor</item>
-        <item name="android:textColorSecondary">@color/darkToolbarItemColor</item> <!-- for menu items -->
+        <item name="android:textColorSecondary">@color/darkToolbarItemColor</item>  <!-- for menu items -->
     </style>
 
+    <style name="Theme.SopaDeLetras" parent="Base.Theme.SopaDeLetras" />
 </resources>
