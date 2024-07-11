@@ -27,16 +27,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var lettersGrid: GridLayout
     private lateinit var findWordsGrid: GridLayout
     private lateinit var toolbar: Toolbar
+    private lateinit var selectedWords : MutableList<Word>
+    private lateinit var gridCells: Array<Array<String?>>
     private var selectedCells = mutableListOf<TextView>()
     private var isDragging = false
     private var direction: Direction? = null
-    private lateinit var selectedWords : MutableList<Word>
+    private var colorIndex = 0
     private val gridSize = 10 // 10x10 grid
     private val findWordCount = 12
-    private lateinit var gridCells: Array<Array<String?>>
     private val debugMode = false
-    private var colorIndex = 0
-
     private val colors by lazy {
         listOf(
             ContextCompat.getColor(this, R.color.color1),

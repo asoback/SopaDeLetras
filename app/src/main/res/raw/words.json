@@ -84,10 +84,6 @@
     "altText": "toy"
   },
   {
-    "text": "frisbee",
-    "altText": "Frisbee"
-  },
-  {
     "text": "cuerda",
     "altText": "rope"
   },
@@ -162,10 +158,6 @@
   {
     "text": "teatro",
     "altText": "theater"
-  },
-  {
-    "text": "perrear",
-    "altText": "twerk"
   },
   {
     "text": "magia",
@@ -272,16 +264,8 @@
     "altText": "sewing"
   },
   {
-    "text": "balonmano",
-    "altText": "handball"
-  },
-  {
     "text": "moda",
     "altText": "fashion"
-  },
-  {
-    "text": "dominó",
-    "altText": "dominoes"
   },
   {
     "text": "ajedrez",
@@ -358,14 +342,6 @@
   {
     "text": "descanso",
     "altText": "rest"
-  },
-  {
-    "text": "crucero",
-    "altText": "cruise"
-  },
-  {
-    "text": "billar",
-    "altText": "pool"
   },
   {
     "text": "esquiar",
@@ -536,16 +512,8 @@
     "altText": "tanned"
   },
   {
-    "text": "mancebo",
-    "altText": "young"
-  },
-  {
     "text": "mayor",
     "altText": "older"
-  },
-  {
-    "text": "obeso",
-    "altText": "obese"
   },
   {
     "text": "pálido",
@@ -700,10 +668,6 @@
     "altText": "fitted"
   },
   {
-    "text": "fodongo",
-    "altText": "slovenly"
-  },
-  {
     "text": "político",
     "altText": "political"
   },
@@ -752,14 +716,6 @@
     "altText": "straight"
   },
   {
-    "text": "laico",
-    "altText": "lay"
-  },
-  {
-    "text": "leonado",
-    "altText": "tawny"
-  },
-  {
     "text": "lechoso",
     "altText": "milky"
   },
@@ -782,22 +738,6 @@
   {
     "text": "lloroso",
     "altText": "tearful"
-  },
-  {
-    "text": "liviano",
-    "altText": "light"
-  },
-  {
-    "text": "lírico",
-    "altText": "lyric"
-  },
-  {
-    "text": "límpido",
-    "altText": "limpid"
-  },
-  {
-    "text": "luchador",
-    "altText": "brave"
   },
   {
     "text": "lánguido",
@@ -846,10 +786,6 @@
   {
     "text": "jugoso",
     "altText": "juicy"
-  },
-  {
-    "text": "juicioso",
-    "altText": "sensible"
   },
   {
     "text": "jurídico",
@@ -912,10 +848,6 @@
     "altText": "impassive"
   },
   {
-    "text": "impío",
-    "altText": "impious"
-  },
-  {
     "text": "incierto",
     "altText": "uncertain"
   },
@@ -928,24 +860,12 @@
     "altText": "improper"
   },
   {
-    "text": "habano",
-    "altText": "tan"
-  },
-  {
-    "text": "harto",
-    "altText": "full"
-  },
-  {
     "text": "helado",
     "altText": "freezing"
   },
   {
     "text": "heroico",
     "altText": "heroic"
-  },
-  {
-    "text": "hidalgo",
-    "altText": "generous"
   },
   {
     "text": "hinchado",
@@ -996,10 +916,6 @@
     "altText": "honest"
   },
   {
-    "text": "hondureño",
-    "altText": "Honduran"
-  },
-  {
     "text": "hirviente",
     "altText": "boiling"
   },
@@ -1044,10 +960,6 @@
     "altText": "lean"
   },
   {
-    "text": "majo",
-    "altText": "nice"
-  },
-  {
     "text": "maldito",
     "altText": "wretched"
   },
@@ -1064,10 +976,6 @@
     "altText": "withered"
   },
   {
-    "text": "manco",
-    "altText": "one-armed"
-  },
-  {
     "text": "maníaco",
     "altText": "manic"
   },
@@ -1080,16 +988,8 @@
     "altText": "massive"
   },
   {
-    "text": "matutino",
-    "altText": "morning"
-  },
-  {
     "text": "mañoso",
     "altText": "crafty"
-  },
-  {
-    "text": "mendigo",
-    "altText": "mean"
   },
   {
     "text": "mezquino",
@@ -1104,10 +1004,6 @@
     "altText": "modern"
   },
   {
-    "text": "mono",
-    "altText": "cute"
-  },
-  {
     "text": "montado",
     "altText": "mounted"
   },
@@ -1118,10 +1014,6 @@
   {
     "text": "movido",
     "altText": "blurred"
-  },
-  {
-    "text": "morado",
-    "altText": "purple"
   },
   {
     "text": "móvil",
@@ -7776,10 +7668,6 @@
     "altText": "brown"
   },
   {
-    "text": "morado",
-    "altText": "purple"
-  },
-  {
     "text": "rosado",
     "altText": "pink"
   },
@@ -11892,10 +11780,6 @@
     "altText": "vest"
   },
   {
-    "text": "smoking",
-    "altText": "tuxedo"
-  },
-  {
     "text": "traje",
     "altText": "suit"
   },
@@ -11910,10 +11794,6 @@
   {
     "text": "collar",
     "altText": "necklace"
-  },
-  {
-    "text": "jersey",
-    "altText": "sweater"
   },
   {
     "text": "zapato",
@@ -19300,10 +19180,6 @@
     "altText": "treat"
   },
   {
-    "text": "fármaco",
-    "altText": "drug"
-  },
-  {
     "text": "afección",
     "altText": "disease"
   },
@@ -20392,10 +20268,6 @@
     "altText": "tulip"
   },
   {
-    "text": "mahierba",
-    "altText": "weed"
-  },
-  {
     "text": "raíz",
     "altText": "root"
   },
@@ -20854,58 +20726,6 @@
   {
     "text": "mil",
     "altText": "thousand"
-  },
-  {
-    "text": "vigésimo",
-    "altText": "twentieth"
-  },
-  {
-    "text": "duodécimo",
-    "altText": "twelfth"
-  },
-  {
-    "text": "undécimo",
-    "altText": "eleventh"
-  },
-  {
-    "text": "décimo",
-    "altText": "tenth"
-  },
-  {
-    "text": "noveno",
-    "altText": "ninth"
-  },
-  {
-    "text": "octavo",
-    "altText": "eighth"
-  },
-  {
-    "text": "séptimo",
-    "altText": "seventh"
-  },
-  {
-    "text": "sexto",
-    "altText": "sixth"
-  },
-  {
-    "text": "quinto",
-    "altText": "fifth"
-  },
-  {
-    "text": "cuarto",
-    "altText": "fourth"
-  },
-  {
-    "text": "tercero",
-    "altText": "third"
-  },
-  {
-    "text": "segundo",
-    "altText": "second"
-  },
-  {
-    "text": "primero",
-    "altText": "first"
   },
   {
     "text": "noventa",
@@ -22190,18 +22010,6 @@
   {
     "text": "anfitrión",
     "altText": "host"
-  },
-  {
-    "text": "sexo",
-    "altText": "sex"
-  },
-  {
-    "text": "chai",
-    "altText": "chick"
-  },
-  {
-    "text": "tipo",
-    "altText": "guy"
   },
   {
     "text": "adulto",
@@ -25618,10 +25426,6 @@
   {
     "text": "extinto",
     "altText": "extinct"
-  },
-  {
-    "text": "ADN",
-    "altText": "DNA"
   },
   {
     "text": "clon",
