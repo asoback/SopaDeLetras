@@ -14192,10 +14192,6 @@
         "altText": "span"
     },
     {
-        "text": "UTI",
-        "altText": "ICU"
-    },
-    {
         "text": "cistitis",
         "altText": "cystitis"
     },
@@ -14238,14 +14234,6 @@
     {
         "text": "pulmonía",
         "altText": "pneumonia"
-    },
-    {
-        "text": "VIH",
-        "altText": "HIV"
-    },
-    {
-        "text": "sida",
-        "altText": "AIDS"
     },
     {
         "text": "camilla",
