@@ -18408,10 +18408,6 @@
         "altText": "kick"
     },
     {
-        "text": "dar",
-        "altText": "kick"
-    },
-    {
         "text": "cabecear",
         "altText": "head"
     },
@@ -18574,14 +18570,6 @@
     {
         "text": "piratear",
         "altText": "pirate"
-    },
-    {
-        "text": "web",
-        "altText": "Web"
-    },
-    {
-        "text": "pin",
-        "altText": "PIN"
     },
     {
         "text": "sistema",
