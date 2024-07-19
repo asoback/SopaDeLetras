@@ -1064,18 +1064,6 @@
     "altText": "gallant"
   },
   {
-    "text": "gallardo",
-    "altText": "gallant"
-  },
-  {
-    "text": "gallego",
-    "altText": "Galician"
-  },
-  {
-    "text": "galo",
-    "altText": "French"
-  },
-  {
     "text": "gamberro",
     "altText": "rowdy"
   },
@@ -1084,16 +1072,8 @@
     "altText": "winning"
   },
   {
-    "text": "gandalla",
-    "altText": "jerky"
-  },
-  {
     "text": "gangoso",
     "altText": "nasal"
-  },
-  {
-    "text": "ganso",
-    "altText": "lazy"
   },
   {
     "text": "garboso",
@@ -1176,10 +1156,6 @@
     "altText": "feasible"
   },
   {
-    "text": "facundo",
-    "altText": "eloquent"
-  },
-  {
     "text": "falaz",
     "altText": "false"
   },
@@ -1252,10 +1228,6 @@
     "altText": "flagrant"
   },
   {
-    "text": "fregado",
-    "altText": "annoying"
-  },
-  {
     "text": "fútil",
     "altText": "futile"
   },
@@ -1274,10 +1246,6 @@
   {
     "text": "fuerte",
     "altText": "strong"
-  },
-  {
-    "text": "ebrio",
-    "altText": "drunk"
   },
   {
     "text": "económico",
@@ -1548,10 +1516,6 @@
     "altText": "brutish"
   },
   {
-    "text": "calato",
-    "altText": "naked"
-  },
-  {
     "text": "campero",
     "altText": "country"
   },
@@ -1590,10 +1554,6 @@
   {
     "text": "celeste",
     "altText": "sky-blue"
-  },
-  {
-    "text": "chafa",
-    "altText": "crappy"
   },
   {
     "text": "chueco",
@@ -1680,10 +1640,6 @@
     "altText": "spirited"
   },
   {
-    "text": "bruto",
-    "altText": "stupid"
-  },
-  {
     "text": "bronco",
     "altText": "harsh"
   },
@@ -1722,10 +1678,6 @@
   {
     "text": "abatible",
     "altText": "folding"
-  },
-  {
-    "text": "abismal",
-    "altText": "vast"
   },
   {
     "text": "abombado",
@@ -1921,7 +1873,7 @@
   },
   {
     "text": "marítimo",
-    "altText": "sea"
+    "altText": "maritime"
   },
   {
     "text": "fiel",
@@ -2054,14 +2006,6 @@
   {
     "text": "basto",
     "altText": "coarse"
-  },
-  {
-    "text": "moto",
-    "altText": "abandoned"
-  },
-  {
-    "text": "veraniego",
-    "altText": "summer"
   },
   {
     "text": "sabio",
@@ -2280,10 +2224,6 @@
     "altText": "phantom"
   },
   {
-    "text": "hablador",
-    "altText": "talkative"
-  },
-  {
     "text": "juguetón",
     "altText": "playful"
   },
@@ -2366,10 +2306,6 @@
   {
     "text": "cansador",
     "altText": "tiring"
-  },
-  {
-    "text": "bajito",
-    "altText": "shortish"
   },
   {
     "text": "negro",
@@ -2484,10 +2420,6 @@
     "altText": "precious"
   },
   {
-    "text": "letrado",
-    "altText": "learned"
-  },
-  {
     "text": "extraño",
     "altText": "strange"
   },
@@ -2556,20 +2488,12 @@
     "altText": "composed"
   },
   {
-    "text": "cazurro",
-    "altText": "stupid"
-  },
-  {
     "text": "lodoso",
     "altText": "muddy"
   },
   {
     "text": "temporal",
     "altText": "temporary"
-  },
-  {
-    "text": "burro",
-    "altText": "stupid"
   },
   {
     "text": "masculino",
@@ -2662,10 +2586,6 @@
   {
     "text": "directo",
     "altText": "direct"
-  },
-  {
-    "text": "maduro",
-    "altText": "ripe"
   },
   {
     "text": "pasado",
@@ -2830,10 +2750,6 @@
   {
     "text": "debido",
     "altText": "proper"
-  },
-  {
-    "text": "estival",
-    "altText": "summer"
   },
   {
     "text": "pícaro",
@@ -13096,10 +13012,6 @@
     "altText": "ocean"
   },
   {
-    "text": "mar",
-    "altText": "sea"
-  },
-  {
     "text": "aire",
     "altText": "air"
   },
@@ -16724,10 +16636,6 @@
     "altText": "propose"
   },
   {
-    "text": "débil",
-    "altText": "weak"
-  },
-  {
     "text": "práctico",
     "altText": "practical"
   },
@@ -19000,10 +18908,6 @@
     "altText": "anxiety"
   },
   {
-    "text": "sordo",
-    "altText": "deaf"
-  },
-  {
     "text": "libra",
     "altText": "pound"
   },
@@ -19410,10 +19314,6 @@
   {
     "text": "aduana",
     "altText": "customs"
-  },
-  {
-    "text": "débil",
-    "altText": "weak"
   },
   {
     "text": "precio",
@@ -22968,10 +22868,6 @@
     "altText": "building"
   },
   {
-    "text": "mar",
-    "altText": "sea"
-  },
-  {
     "text": "bahía",
     "altText": "bay"
   },
@@ -26080,10 +25976,6 @@
     "altText": "robin"
   },
   {
-    "text": "primavera",
-    "altText": "spring"
-  },
-  {
     "text": "sol",
     "altText": "sunshine"
   },
@@ -27806,10 +27698,6 @@
   {
     "text": "primavera",
     "altText": "spring"
-  },
-  {
-    "text": "verano",
-    "altText": "summer"
   },
   {
     "text": "otoño",
