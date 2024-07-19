@@ -4180,10 +4180,6 @@
         "altText": "attentive"
     },
     {
-        "text": "¡Chau!",
-        "altText": "Bye!"
-    },
-    {
         "text": "cultivar",
         "altText": "cultivate"
     },
@@ -8044,8 +8040,8 @@
         "altText": "audience"
     },
     {
-        "text": "¡Hola!",
-        "altText": "Hello!"
+        "text": "Hola",
+        "altText": "Hello"
     },
     {
         "text": "número",
@@ -8848,10 +8844,6 @@
         "altText": "hurry"
     },
     {
-        "text": "¡Oye!",
-        "altText": "Hey!"
-    },
-    {
         "text": "ola",
         "altText": "wave"
     },
@@ -9312,10 +9304,6 @@
         "altText": "demand"
     },
     {
-        "text": "dpto.",
-        "altText": "dept"
-    },
-    {
         "text": "despacho",
         "altText": "office"
     },
@@ -9434,10 +9422,6 @@
     {
         "text": "nave",
         "altText": "warehouse"
-    },
-    {
-        "text": "Cía.",
-        "altText": "Co."
     },
     {
         "text": "negocio",
@@ -10412,10 +10396,6 @@
         "altText": "convict"
     },
     {
-        "text": "violar",
-        "altText": "rape"
-    },
-    {
         "text": "atacar",
         "altText": "attack"
     },
@@ -11030,10 +11010,6 @@
     {
         "text": "asombro",
         "altText": "fright"
-    },
-    {
-        "text": "Yeah",
-        "altText": "right!"
     },
     {
         "text": "vale",
@@ -12308,20 +12284,8 @@
         "altText": "hurray"
     },
     {
-        "text": "cómo",
-        "altText": "Sorry?"
-    },
-    {
         "text": "bueno",
         "altText": "hello"
-    },
-    {
-        "text": "¡Anjá!",
-        "altText": "sure"
-    },
-    {
-        "text": "¡Ja!",
-        "altText": "Ha!"
     },
     {
         "text": "olé",
@@ -12332,28 +12296,8 @@
         "altText": "enough"
     },
     {
-        "text": "¡Ca!",
-        "altText": "Nonsense!"
-    },
-    {
         "text": "regio",
         "altText": "great"
-    },
-    {
-        "text": "¡Jo!",
-        "altText": "Wow!"
-    },
-    {
-        "text": "¡Caray!",
-        "altText": "Wow!"
-    },
-    {
-        "text": "¡Guau!",
-        "altText": "Wow!"
-    },
-    {
-        "text": "¡Caramba!",
-        "altText": "Wow!"
     },
     {
         "text": "viva",
@@ -14492,10 +14436,6 @@
         "altText": "rabies"
     },
     {
-        "text": "Dra.",
-        "altText": "Dr."
-    },
-    {
         "text": "terapia",
         "altText": "therapy"
     },
@@ -15616,14 +15556,6 @@
         "altText": "appendix"
     },
     {
-        "text": "recto",
-        "altText": "rectum"
-    },
-    {
-        "text": "testículo",
-        "altText": "testicle"
-    },
-    {
         "text": "matriz",
         "altText": "uterus"
     },
@@ -15798,10 +15730,6 @@
     {
         "text": "talón",
         "altText": "heel"
-    },
-    {
-        "text": "júnior",
-        "altText": "Jr."
     },
     {
         "text": "amigazo",
@@ -16162,26 +16090,6 @@
     {
         "text": "juicio",
         "altText": "sense"
-    },
-    {
-        "text": "Sra.",
-        "altText": "Ms."
-    },
-    {
-        "text": "Sra.",
-        "altText": "Mrs."
-    },
-    {
-        "text": "Dña.",
-        "altText": "Ms."
-    },
-    {
-        "text": "Sr.",
-        "altText": "Mr."
-    },
-    {
-        "text": "Srta.",
-        "altText": "Miss"
     },
     {
         "text": "príncipe",
