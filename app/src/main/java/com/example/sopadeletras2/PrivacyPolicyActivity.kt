@@ -21,10 +21,6 @@ class PrivacyPolicyActivity : AppCompatActivity() {
         webView = findViewById(R.id.webView)
 
         // Fetch the HTML content from the remote URL
-        // Potential URLs (TODO)
-        // https://asoback.github.io/SopadeLetras/PrivacyPolicy.html
-        // https://raw.githubusercontent.com/asoback/SopadeLetras/main/PrivacyPolicy.html
-        // Fetch the HTML content from the remote URL using coroutines
         fetchHtmlContent("https://raw.githubusercontent.com/asoback/SopadeLetras/main/PrivacyPolicy.html")
     }
 
