@@ -93,7 +93,12 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_settings -> {
                 Toast.makeText(this, "2024, https://github.com/asoback/SopadeLetras", Toast.LENGTH_LONG).show()
-
+                true
+            }
+            R.id.action_privacy_policy -> {
+                // Launch PrivacyPolicyActivity
+                val intent = Intent(this, PrivacyPolicyActivity::class.java)
+                startActivity(intent)
                 true
             }
             else -> super.onOptionsItemSelected(item)
