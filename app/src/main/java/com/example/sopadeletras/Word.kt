@@ -1,4 +1,4 @@
-package com.example.sopadeletras2
+package com.example.sopadeletras
 
 data class Word(
     val text: String,

@@ -1,4 +1,4 @@
-package com.example.sopadeletras2
+package com.example.sopadeletras
 
 import android.content.Context
 import android.content.Intent

@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Sopa de Letras 2"
+rootProject.name = "Sopa de Letras"
 include(":app")
  

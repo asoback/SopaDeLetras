@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.sopadeletras2"
+    namespace = "com.example.sopadeletras"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.sopadeletras2"
+        applicationId = "com.example.sopadeletras"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

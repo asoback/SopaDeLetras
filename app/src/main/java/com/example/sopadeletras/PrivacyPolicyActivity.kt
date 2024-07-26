@@ -1,4 +1,4 @@
-package com.example.sopadeletras2
+package com.example.sopadeletras
 
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
